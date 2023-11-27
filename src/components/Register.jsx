@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast,{ Toaster } from 'react-hot-toast'
-
+import BASE_URL from '../config/urlconfig'
 export default function Register() {
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ export default function Register() {
             password:e.target.password.value 
         }
         //making POST request 
-        fetch("http://localhost:8000/api/users/register",{
+        fetch(`${BASE_URL}/api/users/register`,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(user)
